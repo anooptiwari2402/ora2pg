@@ -1,0 +1,18 @@
+LOAD CSV
+   FROM '/Users/anoop.tiwari/Downloads/OracleToPG/pgloader/${filename}.csv'
+        HAVING FIELDS
+        (
+          "KEY_ID","KEY","TYPE","CREATED","UPDATED","EXPIRY","STATUS","UPDATED_BY"
+        )
+   INTO postgresql://${pg_username}:${pg_pass}@${pg_ip}:5432/${pg_database}
+        TARGET TABLE "${pg_schema}"."${pg_table}"
+        TARGET COLUMNS
+        (
+          KEY_ID,KEY,TYPE,CREATED,UPDATED,EXPIRY,STATUS,UPDATED_BY
+        )
+   WITH skip header = 1,
+        fields optionally enclosed by '"',
+        fields escaped by double-quote,
+        fields terminated by ','
+
+    SET work_mem to '32 MB', maintenance_work_mem to '64 MB';
