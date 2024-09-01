@@ -1,5 +1,18 @@
-# ora2pg Docker 
+# Tools for Oracle to Postgress Migration
 Container image for migrating from oracle to postgresql database.
+
+## K8's configuration use 
+```git
+ git checkout docker-hub-push
+```
+
+and then create docker image
+
+```bash 
+ docker build -t ora2pg .
+```
+
+and follow instruction based on migration-steps-docs/ora2pg-migration-steps.docx
 
 ## Tags and Releases
 
